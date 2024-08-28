@@ -23,7 +23,7 @@ public:
 class Derived_Private : private Base {
 public:
     void show() {
-        // cout << "Secret: " << secret << endl;  
+        cout << "Secret: " << secret << endl;  
         cout << "Protect: " << protect << endl;    
         cout << "Access: " << access << endl;     
     }
@@ -32,7 +32,7 @@ public:
 class Derived_Protected : protected Base {
 public:
     void show() {
-        // cout << "Secret: " << secret << endl;  
+        cout << "Secret: " << secret << endl;  
         cout << "Protect: " << protect << endl;   
         cout << "Access: " << access << endl;     
     }
@@ -41,7 +41,7 @@ public:
 class Derived_Public : public Base {
 public:
     void show() {
-        // cout << "Secret: " << secret << endl;  
+         cout << "Secret: " << secret << endl;  
         cout << "Protect: " << protect << endl;   
         cout << "Access: " << access << endl;    
     }
