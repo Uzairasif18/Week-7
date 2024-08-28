@@ -1,0 +1,65 @@
+# Week-7
+#include <iostream>
+
+using namespace std;
+
+class Base {
+private:
+    int secret;
+
+protected:
+    int protect;
+
+public:
+    int access;
+
+    Base() {
+        secret = 1;
+        protect = 2;
+        access = 3;
+    }
+};
+
+class Derived_Private : private Base {
+public:
+    void show() {
+        // cout << "Secret: " << secret << endl;  // Error: 'secret' is private in 'Base'
+        cout << "Protect: " << protect << endl;   // Accessible because 'protect' is protected in 'Base'
+        cout << "Access: " << access << endl;     // Accessible because 'access' is public in 'Base'
+    }
+};
+
+class Derived_Protected : protected Base {
+public:
+    void show() {
+        // cout << "Secret: " << secret << endl;  // Error: 'secret' is private in 'Base'
+        cout << "Protect: " << protect << endl;   // Accessible because 'protect' is protected in 'Base'
+        cout << "Access: " << access << endl;     // Accessible because 'access' is public in 'Base'
+    }
+};
+
+class Derived_Public : public Base {
+public:
+    void show() {
+        // cout << "Secret: " << secret << endl;  // Error: 'secret' is private in 'Base'
+        cout << "Protect: " << protect << endl;   // Accessible because 'protect' is protected in 'Base'
+        cout << "Access: " << access << endl;     // Accessible because 'access' is public in 'Base'
+    }
+};
+
+int main() {
+    Derived_Private dp;
+    Derived_Protected dpr;
+    Derived_Public dpu;
+
+    cout << "Derived_Private show:" << endl;
+    dp.show();
+
+    cout << "\nDerived_Protected show:" << endl;
+    dpr.show();
+
+    cout << "\nDerived_Public show:" << endl;
+    dpu.show();
+
+    return 0;
+}
